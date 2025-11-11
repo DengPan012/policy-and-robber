@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>police and robber game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <canvas id="canvas"></canvas> 
+  <!-- participant ID input -->
+  <div class="form-overlay">
+    <form id="subjectIDForm">
+      <label for="subjectIDInput" class="form-label">Subject ID</label>
+      <div>
+        <input 
+          id="subjectIDInput"
+          type="text"
+          placeholder="Suggested ID: "
+        />
+      </div>
+
+      <div class="button-container">
+        <button type="submit">Start</button>
+      </div>
+    </form>
+  </div>
+  <!-- username input end -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="preload.js"></script>
+  <script src="functions.js"></script>
+  <script src="classes/Maze.js"></script>
+  <script src="app.js"></script>
+  <script src="eventListeners.js"></script>
+</body>
+</html>
