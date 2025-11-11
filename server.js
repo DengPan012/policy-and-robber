@@ -165,6 +165,10 @@ io.on("connection", (socket) => {
         if (roleID !== null) {
             delete allRoomData[roomID].players[roleID];
             io.to(roomID).emit("roomStatus", {roomData: allRoomData[roomID], backEndSubjects});
+            // if no players left in the room, reset the environment
+            if (Object.keys(allRoomData[roomID].players).length === 0) {
+                allRoomData[roomID].env.reset();
+            }
         }
         // find where in subjectSocketIDMap this socket.id is mapped and clear it
         const oldSubjectIDs = Object.keys(subjectSocketIDMap).filter(si => Object.is(subjectSocketIDMap[si], socket.id));
